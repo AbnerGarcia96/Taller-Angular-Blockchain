@@ -6,15 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'app';
-  addr = 'New address';
-  balance = '$1002937.90';
-  transferTo = '';
-  amount = 0;
-  remarks = '';
+  direccion = '0x23a9df4g87w23hgsdf987234234';
+  balance = 1002937.90;
+  destinoTransaccion = '';
+  monto = 0;
+  comentario = '';
 
-  transferEther(e){
-    alert('hello');
-    console.log(this.transferTo);
+  transferirEther(e){
+    console.log(this.destinoTransaccion);
   }
 }

@@ -2,16 +2,21 @@
     box-sizing: border-box;
 }
 
-/* Add padding to containers */
 .container {
     padding: 16px;
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Full-width input fields */
-.inputfield {
+.textarea {
     width: 100%;
+}
+
+.textbox {
+    width: 40%;
+}
+
+.inputfield {
     padding: 15px;
     margin: 5px 0 22px 0;
     display: inline-block;
@@ -19,7 +24,9 @@
     background: #f1f1f1;
 }
 
-.inputfield:focus {
+
+.inputfield:focus,
+.textarea:focus {
     background-color: #ddd;
     outline: none;
 }
@@ -27,7 +34,8 @@
 .tab {
     overflow: hidden;
     border: 1px solid #ccc;
-    background-color: 	#00FF00;
+    background-color:#5E464D;
+    color: #ffffff;
     float: left;
     border: none;
     outline: none;
@@ -43,7 +51,6 @@
   float: right;
 }
 
-/* Overwrite default styles of hr */
 hr {
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
@@ -53,9 +60,9 @@ textarea {
   height : 120px;
   font-family: Arial, Helvetica, sans-serif;
 }
-/* Set a style for the submit button */
+
 .trfbtn {
-    background-color: #4CAF50;
+    background-color: #43DCC1;
     color: white;
     padding: 16px 20px;
     margin: 8px 10px;
@@ -71,9 +78,18 @@ textarea {
 }
 
 .resetbtn {
-  background-color: grey;
+  background-color: #5E464D;
 }
-/* Add a blue text color to links */
-a {
-    color: dodgerblue;
+
+.logo{
+    width: 50px;
+    height: auto;
+}
+
+.padding-left{
+    padding-left: 1em;
+}
+
+label{
+    padding-right: 5px;
 }
