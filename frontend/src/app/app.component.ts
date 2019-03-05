@@ -11,18 +11,15 @@ export class AppComponent {
   balance: string;
   destinoTransaccion: string;
   monto: string;
-  comentario: string;
 
   constructor(private contract: ContractService){
-    contract.verInformacionCuenta().then(value => {
+    contract.verInformacionCuenta().then((value: any) => {
       this.direccion = value.cuentaOrigen;
       this.balance = value.balance;
-      console.log(value);
     });
   }
 
   transferirEther(e){
-    console.log('Transfiriendo');
-    this.contract.transferirEther(this.direccion, this.destinoTransaccion, this.monto, this.comentario);
+    this.contract.transferirEther(this.direccion, this.destinoTransaccion, this.monto);
   }
 }

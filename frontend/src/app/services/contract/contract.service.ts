@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 import contract from 'truffle-contract';
 
 declare let require: any;
 const Web3 = require('web3');
 
-let tokenAbi = require('../../../../../blockchain/build/contracts/Payment.json');
+const tokenAbi = require('../../../../../blockchain/build/contracts/Payment.json');
 
 declare let window: any;
 
@@ -46,19 +45,19 @@ export class ContractService {
     });
   }
 
-  transferirEther(transferFrom, transferTo, amount, remarks) {
-    let that = this;
+  transferirEther(cuentaOrigen, cuentaDestino, monto) {
+    const that = this;
 
     return new Promise((resolve, reject) => {
-      let paymentContract = contract(tokenAbi);
+      const paymentContract = contract(tokenAbi);
       paymentContract.setProvider(that.web3Provider);
 
       paymentContract.deployed().then((instance) => {
           return instance.nuevaTransaccion(
-            transferTo,
+            cuentaDestino,
             {
-              from:transferFrom,
-              value:window.web3.utils.toWei(amount, 'ether')
+              from: cuentaOrigen,
+              value: window.web3.utils.toWei(monto, 'ether')
             });
         }).then((status) => {
           if(status) {
