@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ContractService } from './services/contract/contract.service';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  direccion = '0x23a9df4g87w23hgsdf987234234';
-  balance = 1002937.90;
-  destinoTransaccion = '';
-  monto = 0;
-  comentario = '';
+  direccion: string;
+  balance: string;
+  destinoTransaccion: string;
+  monto: string;
+  comentario: string;
+
+  constructor(private contract: ContractService){
+    contract.verInformacionCuenta().then(value => {
+      this.direccion = value.cuentaOrigen;
+      this.balance = value.balance;
+      console.log(value);
+    });
+  }
 
   transferirEther(e){
-    console.log(this.destinoTransaccion);
+    console.log('Transfiriendo');
+    this.contract.transferirEther(this.direccion, this.destinoTransaccion, this.monto, this.comentario);
   }
 }
