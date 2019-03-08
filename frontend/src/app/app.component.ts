@@ -11,6 +11,8 @@ export class AppComponent {
   balance: string;
   destinoTransaccion: string;
   monto: string;
+  exito: boolean;
+  transaccionHecha: boolean;
 
   constructor(private contract: ContractService){
     contract.verInformacionCuenta().then((value: any) => {
@@ -20,6 +22,19 @@ export class AppComponent {
   }
 
   transferirEther(e){
-    this.contract.transferirEther(this.direccion, this.destinoTransaccion, this.monto);
+    this.contract.transferirEther(this.direccion, this.destinoTransaccion, this.monto).then((r) => {
+      this.mostrarMensaje(true, 5000);
+    }).catch((e) => {
+      this.mostrarMensaje(false, 5000);
+    });
+  }
+
+  mostrarMensaje(exito, duracion){
+    this.transaccionHecha = true;
+    this.exito = exito;
+    setTimeout(() => {
+        this.exito = !exito;
+        this.transaccionHecha = false;
+    }, duracion);
   }
 }

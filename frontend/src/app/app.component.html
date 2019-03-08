@@ -13,6 +13,14 @@
         <b>Balance</b>{{ balance | currency: 'ETH ' }}
       </span>
     </div>
+
+    <div class="message success" *ngIf="transaccionHecha && exito">
+      <b>Tranascción realizada exitosamente</b> 
+    </div>
+
+    <div class="message error" *ngIf="transaccionHecha && !exito">
+      <b>Hubo un error en la transacción</b> 
+    </div>
     
     <hr>
 

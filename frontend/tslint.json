@@ -45,6 +45,7 @@
       true,
       "ignore-params"
     ],
+    "disable-next-line": "max-line-length",
     "no-non-null-assertion": true,
     "no-redundant-jsdoc": true,
     "no-switch-case-fall-through": true,
