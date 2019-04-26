@@ -28,10 +28,9 @@ export class ContractService {
   verInformacionCuenta() {
     return new Promise((resolve, reject) => {
       window.web3.eth.getCoinbase((err, account) => {
-
-        if(err === null) {
+        if(!err || err === null) {
           window.web3.eth.getBalance(account, (error, balance) => {
-            if (error === null) {
+            if (!error || error === null) {
               return resolve({
                 cuentaOrigen: account,
                 balance: (window.web3.utils.fromWei(balance, 'ether'))
